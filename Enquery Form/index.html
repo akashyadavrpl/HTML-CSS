@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registraction | From</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false">
+            <h3>Get in touch</h3>
+
+            <input type="text" id="name" placeholder="Your name" required>
+            <input type="email" id="email" placeholder="Your email id" required>
+            <input type="phone" id="phone" placeholder="Your phone number" required>
+            <textarea id="message" cols="30" rows="5" placeholder="How can we help you"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "computer@gmail.com",
+                Password: "#######",
+                To: 'ay36808@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "Contact form enquery",
+                Body: "Main containt"
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+
+</body>
+
+</html>
